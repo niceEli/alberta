@@ -12,7 +12,6 @@ export default async function errorF(e: Error) {
   });
 
   a.k.drawText({
-
     text: `An Fatal ${e.name} Occured, Please Relaunch\nAlberta Cannot Continue Functioning Properly`,
     size: 40,
     color: new a.k.Color(255, 100, 100),

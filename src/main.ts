@@ -1,11 +1,11 @@
-import a from "./alberta";
-import init from "./aberta_scn/init";
+import cl_initscene from "./initscene";
+import a from "./alberta_lib/alberta";
 import "console.history";
 
 // init alberta and errors //
 a.k.load(
   new Promise(async (resolve) => {
-    a.k.scene("init", init);
+    a.k.scene("init", new cl_initscene().scene);
     resolve("ok");
   })
 );
