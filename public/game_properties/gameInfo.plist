@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>alberta_engine_prefix</key>
+    <string>tech.niceEli.alberta</string>
+    <key>games_meta</key>
+    <dict>
+      <key>menu</key>
+      <dict>
+        <key>favicon</key>
+        <string/>
+        <key>rich_name</key>
+        <string>Calgary</string>
+        <key>menu_hidden</key>
+        <false/>
+      </dict>
+    </dict>
     <key>starting_game</key>
     <string>menu</string>
     <key>games</key>
