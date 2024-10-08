@@ -27,6 +27,7 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**"],
     },
   },
+  base: "./",
   plugins: [
     topLevelAwait({
       promiseExportName: "__tla",
