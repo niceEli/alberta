@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Game Info Schema",
+  "type": "object",
+  "properties": {
+    "alberta_engine_prefix": {
+      "type": "string"
+    },
+    "starting_game": {
+      "type": "string"
+    },
+    "games": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alberta_engine_assets": {
+      "type": "object",
+      "properties": {
+        "alberta_sprites": {
+          "type": "object"
+        },
+        "alberta_sounds": {
+          "type": "object"
+        },
+        "alberta_music": {
+          "type": "object",
+          "properties": {
+            "calgary": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "games_meta": {
+      "type": "object",
+      "properties": {
+        "calgary": {
+          "type": "object",
+          "properties": {
+            "favicon": {
+              "type": "string"
+            },
+            "rich_name": {
+              "type": "string"
+            },
+            "menu_hidden": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["alberta_engine_prefix", "starting_game", "games"]
+}

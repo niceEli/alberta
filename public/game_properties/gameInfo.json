@@ -1,0 +1,20 @@
+{
+  "$schema": "./gameInfo.schema.json",
+  "alberta_engine_assets": {
+    "alberta_sprites": {},
+    "alberta_sounds": {},
+    "alberta_music": {
+      "calgary_bgm_calgaryLoop": "./assets/calgary.mp3"
+    }
+  },
+  "alberta_engine_prefix": "tech.niceEli.alberta",
+  "games_meta": {
+    "calgary": {
+      "favicon": "",
+      "rich_name": "Main Menu",
+      "menu_hidden": true
+    }
+  },
+  "starting_game": "calgary",
+  "games": ["calgary"]
+}
