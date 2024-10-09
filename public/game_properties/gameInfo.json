@@ -9,12 +9,20 @@
   },
   "alberta_engine_prefix": "tech.niceEli.alberta",
   "games_meta": {
+    "yyc": {
+      "rich_name": "Profile Creator",
+      "menu_hidden": true
+    },
     "calgary": {
-      "favicon": "",
       "rich_name": "Main Menu",
       "menu_hidden": true
+    },
+    "edmonton": {
+      "favicon": "edmonton_launcher",
+      "rich_name": "Settings",
+      "description": "Options For Alberta And Alberta RT Games"
     }
   },
   "starting_game": "calgary",
-  "games": ["calgary"]
+  "games": ["yyc", "calgary", "edmonton"]
 }

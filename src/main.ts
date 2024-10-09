@@ -10,7 +10,23 @@ a.k.load(
   })
 );
 
-onLoading((p: number) => {
+a.k.layers(
+  [
+    "a-wallpaper",
+    "a-bg",
+    "a-aero",
+    "a-game_area",
+    "a-frutiger",
+    "a-ui",
+    "a-top",
+  ],
+  "a-game_area"
+);
+
+a.k.loadSprite("alberta-engine_logo", "./engine/alberta-engine_logo.png");
+a.k.loadSprite("edmonton_launcher", "./engine/edmonton_launcher.png");
+
+a.k.onLoading((p: number) => {
   a.k.drawText({
     text: "Alberta",
     size: 50,

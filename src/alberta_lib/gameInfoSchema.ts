@@ -1,3 +1,4 @@
+// https://transform.tools/json-schema-to-typescript
 export interface GameInfoSchema {
   alberta_engine_prefix: string;
   starting_game: string;
@@ -19,6 +20,7 @@ export interface GameInfoSchema {
       favicon?: string;
       rich_name?: string;
       menu_hidden?: boolean;
+      description?: string;
       [k: string]: unknown;
     };
     [k: string]: unknown;

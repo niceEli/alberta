@@ -4,7 +4,7 @@ import k from "./kaplay";
 import { swapGame } from "./setupScn";
 
 let lInfo = {
-  info: [],
+  info: [gameInfo["alberta_engine_prefix"] + " init", "Bootstrapped Alberta Engine Success (were in the loader)", "Loading Data..."],
 };
 
 export default class cl_initscene extends cl_albertaScene {
@@ -21,13 +21,32 @@ export default class cl_initscene extends cl_albertaScene {
           lInfo.info.reverse();
         },
       },
+      k.layer("a-ui"),
     ]);
 
+    k.add([
+      k.layer("a-frutiger"),
+      k.sprite("alberta-engine_logo"),
+      k.anchor("center"),
+      k.pos(75, k.height() - 75),
+      k.opacity(0.2),
+      k.rotate(k.rand() * 360),
+      {
+        update() {
+          (this as any).angle += 10 * k.dt();
+        },
+      },
+    ]);
+
+    lInfo.info.push("Loading Games");
     await gameLoad();
-    // @ts-expect-error TS2345
-    lInfo.info.push("Loaded all games, starting " + gameInfo["starting_game"]);
+    lInfo.info.push("Loaded All Games");
     await k.wait(0.1);
+    lInfo.info.push("Loading Assets");
     await loadAssets();
+    lInfo.info.push("Loaded All Assets");
+    await k.wait(0.1);
+    lInfo.info.push("Loaded All Data, Starting " + gameInfo["alberta_engine_prefix"] + "_" + gameInfo["starting_game"]);
     await k.wait(0.1);
     swapGame(gameInfo["starting_game"]);
   }
@@ -36,14 +55,12 @@ export default class cl_initscene extends cl_albertaScene {
 async function gameLoad() {
   for (let i in gameInfo["games"]) {
     let scn = await import(`./games/${gameInfo["games"][i]}/cl_init.ts`);
-    // @ts-expect-error TS2345
     lInfo.info.push("Loading " + gameInfo["games"][i]);
     await k.wait(0.01);
     k.scene(
       "cl_init_albertagame_" + gameInfo["games"][i],
       new scn.default().scene
     );
-    // @ts-expect-error TS2345
     lInfo.info.push("Loaded " + gameInfo["games"][i]);
     await k.wait(0.01);
   }
@@ -56,39 +73,33 @@ async function loadAssets() {
     if (assets.alberta_sprites) {
       for (let name in assets.alberta_sprites) {
         let path = assets.alberta_sprites[name];
-        // @ts-expect-error TS2345
-        lInfo.info.push("Loading sprite " + name + " from " + path);
+        lInfo.info.push("Loading Sprite " + name + " from " + path);
         await k.wait(0.01);
         k.loadSprite(name, path);
         await k.wait(0.01);
-        // @ts-expect-error TS2345
-        lInfo.info.push("Loaded sprite " + name);
+        lInfo.info.push("Loaded Sprite " + name);
       }
     }
 
     if (assets.alberta_sounds) {
       for (let name in assets.alberta_sounds) {
         let path = assets.alberta_sounds[name];
-        // @ts-expect-error TS2345
-        lInfo.info.push("Loading sound " + name + " from " + path);
+        lInfo.info.push("Loading Sound " + name + " from " + path);
         await k.wait(0.01);
         k.loadSound(name, path);
         await k.wait(0.01);
-        // @ts-expect-error TS2345
-        lInfo.info.push("Loaded sound " + name);
+        lInfo.info.push("Loaded Sound " + name);
       }
     }
 
     if (assets.alberta_music) {
       for (let name in assets.alberta_music) {
         let path = assets.alberta_music[name];
-        // @ts-expect-error TS2345
-        lInfo.info.push("Loading music " + name + " from " + path);
+        lInfo.info.push("Loading Music " + name + " from " + path);
         await k.wait(0.01);
         k.loadMusic(name, path);
         await k.wait(0.01);
-        // @ts-expect-error TS2345
-        lInfo.info.push("Loaded music " + name);
+        lInfo.info.push("Loaded Music " + name);
       }
     }
   }

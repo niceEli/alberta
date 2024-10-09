@@ -48,6 +48,9 @@
             },
             "menu_hidden": {
               "type": "boolean"
+            },
+            "description": {
+              "type": "string"
             }
           }
         }
