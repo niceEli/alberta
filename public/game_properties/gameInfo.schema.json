@@ -6,6 +6,9 @@
     "alberta_engine_prefix": {
       "type": "string"
     },
+    "user_creation_game": {
+      "type": "string"
+    },
     "starting_game": {
       "type": "string"
     },
@@ -57,5 +60,10 @@
       }
     }
   },
-  "required": ["alberta_engine_prefix", "starting_game", "games"]
+  "required": [
+    "alberta_engine_prefix",
+    "user_creation_game",
+    "starting_game",
+    "games"
+  ]
 }

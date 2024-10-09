@@ -23,6 +23,7 @@
       "description": "Options For Alberta And Alberta RT Games"
     }
   },
+  "user_creation_game": "yyc",
   "starting_game": "calgary",
   "games": ["yyc", "calgary", "edmonton"]
 }

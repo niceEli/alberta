@@ -1,6 +1,7 @@
 // https://transform.tools/json-schema-to-typescript
 export interface GameInfoSchema {
   alberta_engine_prefix: string;
+  user_creation_game: string;
   starting_game: string;
   games: string[];
   alberta_engine_assets?: {
