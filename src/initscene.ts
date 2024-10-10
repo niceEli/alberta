@@ -1,10 +1,16 @@
 import cl_albertaScene from "./alberta_lib/cl_albertaScene";
 import gameInfo from "./alberta_lib/gameInfo";
+import runtimeID from "./alberta_lib/runtimeID";
 import k from "./kaplay";
 import { swapGame } from "./setupScn";
 
 let lInfo = {
-  info: [gameInfo["alberta_engine_prefix"] + " init", "Bootstrapped Alberta Engine Success (were in the loader)", "Loading Data..."],
+  info: [
+    gameInfo["alberta_engine_prefix"] + " init",
+    "Runtime Security ID: " + runtimeID,
+    "Bootstrapped Alberta Engine Success (Were In The Loader)",
+    "Loading Data...",
+  ],
 };
 
 export default class cl_initscene extends cl_albertaScene {
@@ -28,7 +34,8 @@ export default class cl_initscene extends cl_albertaScene {
       k.layer("a-frutiger"),
       k.sprite("alberta-engine_logo"),
       k.anchor("center"),
-      k.pos(75, k.height() - 75),
+      k.pos(150, k.height() - 150),
+      k.scale(2),
       k.opacity(0.2),
       k.rotate(k.rand() * 360),
       {
@@ -46,9 +53,32 @@ export default class cl_initscene extends cl_albertaScene {
     await loadAssets();
     lInfo.info.push("Loaded All Assets");
     await k.wait(0.1);
-    lInfo.info.push("Loaded All Data, Starting " + gameInfo["alberta_engine_prefix"] + "_" + gameInfo["starting_game"]);
-    await k.wait(0.1);
-    swapGame(gameInfo["starting_game"]);
+    if (
+      localStorage.getItem(
+        `${gameInfo["alberta_engine_prefix"]}-alberta_saveGame`
+      ) === null ||
+      localStorage.getItem(
+        `${gameInfo["alberta_engine_prefix"]}-alberta_options`
+      ) === null
+    ) {
+      lInfo.info.push(
+        "Loaded All Data, Starting " +
+          gameInfo["alberta_engine_prefix"] +
+          "_" +
+          gameInfo["user_creation_game"]
+      );
+      await k.wait(0.2);
+      swapGame(gameInfo["user_creation_game"]);
+    } else {
+      lInfo.info.push(
+        "Loaded All Data, Starting " +
+          gameInfo["alberta_engine_prefix"] +
+          "_" +
+          gameInfo["starting_game"]
+      );
+      await k.wait(0.2);
+      swapGame(gameInfo["starting_game"]);
+    }
   }
 }
 
@@ -58,7 +88,7 @@ async function gameLoad() {
     lInfo.info.push("Loading " + gameInfo["games"][i]);
     await k.wait(0.01);
     k.scene(
-      "cl_init_albertagame_" + gameInfo["games"][i],
+      runtimeID + "_cl_init_albertagame_" + gameInfo["games"][i],
       new scn.default().scene
     );
     lInfo.info.push("Loaded " + gameInfo["games"][i]);
