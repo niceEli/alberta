@@ -1,0 +1,9 @@
+{
+  "engine": {
+    "alberta:test": {
+      "en": "this is for testing",
+      "it": "questo è per testare",
+      "es": "esto es para probar"
+    }
+  }
+}
