@@ -1,10 +1,13 @@
 {
   "$schema": "./gameInfo.schema.json",
   "alberta_engine_assets": {
-    "alberta_sprites": {},
+    "alberta_sprites": {
+      "calgary_icons_edmontonLauncher": "./engine/edmonton_launcher.png"
+    },
     "alberta_sounds": {},
     "alberta_music": {
-      "calgary_bgm_calgaryLoop": "./assets/calgary.mp3"
+      "calgary_bgm_calgaryLoop": "./engine/Calgary/calgary.mp3",
+      "yyc_bgl_yycLoop": "./engine/YYC/flow-211881.mp3"
     }
   },
   "alberta_engine_prefix": "tech.niceEli.alberta",
@@ -18,7 +21,7 @@
       "menu_hidden": true
     },
     "edmonton": {
-      "favicon": "edmonton_launcher",
+      "favicon": "calgary_icons_edmontonLauncher",
       "rich_name": "Settings",
       "description": "Options For Alberta And Alberta RT Games"
     }

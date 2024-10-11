@@ -3,6 +3,7 @@ import gameInfo from "./alberta_lib/gameInfo";
 import runtimeID from "./alberta_lib/runtimeID";
 import k from "./kaplay";
 import { swapGame } from "./setupScn";
+import getAsset from "./alberta_lib/getAsset";
 
 let lInfo = {
   info: [
@@ -105,7 +106,7 @@ async function loadAssets() {
         let path = assets.alberta_sprites[name];
         lInfo.info.push("Loading Sprite " + name + " from " + path);
         await k.wait(0.01);
-        k.loadSprite(name, path);
+        k.loadSprite(getAsset(name, true), path);
         await k.wait(0.01);
         lInfo.info.push("Loaded Sprite " + name);
       }
@@ -116,7 +117,7 @@ async function loadAssets() {
         let path = assets.alberta_sounds[name];
         lInfo.info.push("Loading Sound " + name + " from " + path);
         await k.wait(0.01);
-        k.loadSound(name, path);
+        k.loadSound(getAsset(name, true), path);
         await k.wait(0.01);
         lInfo.info.push("Loaded Sound " + name);
       }
@@ -127,7 +128,7 @@ async function loadAssets() {
         let path = assets.alberta_music[name];
         lInfo.info.push("Loading Music " + name + " from " + path);
         await k.wait(0.01);
-        k.loadMusic(name, path);
+        k.loadMusic(getAsset(name, true), path);
         await k.wait(0.01);
         lInfo.info.push("Loaded Music " + name);
       }

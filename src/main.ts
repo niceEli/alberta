@@ -23,8 +23,8 @@ a.k.layers(
   "a-game_area"
 );
 
+// These cant be in the loader cause they are used in the loader
 a.k.loadSprite("alberta-engine_logo", "./engine/alberta-engine_logo.png");
-a.k.loadSprite("edmonton_launcher", "./engine/edmonton_launcher.png");
 
 a.k.onLoading((p: number) => {
   a.k.drawText({

@@ -21,9 +21,5 @@ export let localeInfo = {
 };
 
 export function getString(name: string): string {
-  if (!has(locale, `${name}.${localeInfo.lang}`)) {
-    throw new Error(`String ${name} not found in locale`);
-  } else {
-    return get(locale, `${name}.${localeInfo.lang}`);
-  }
+  return get(locale, `${name}.${localeInfo.lang}`, name);
 }
